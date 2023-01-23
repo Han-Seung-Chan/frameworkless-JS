@@ -17,10 +17,6 @@ const state = {
 };
 
 const events = {
-  deleteItem: (index) => {
-    state.todoLists.splice(index, 1);
-    render();
-  },
   addItem: (text) => {
     state.todoLists.push({
       text,

@@ -7,30 +7,17 @@ const createNewTodoNode = () => {
 
   return template.content.firstElementChild.cloneNode(true);
 };
-
-const getTodoElement = (todo, index, events) => {
-  const { text, completed } = todo;
+const getTodoElement = (todo) => {
+  const { text } = todo;
 
   const element = createNewTodoNode();
-
-  element.querySelector('input.edit').value = text;
   element.querySelector('label').textContent = text;
-
-  if (completed) {
-    element.classList.add('completed');
-    element.querySelector('input.toggle').checked = true;
-  }
-
-  const handler = (e) => events.deleteItem(index);
-
-  element.querySelector('button.destroy').addEventListener('click', handler);
 
   return element;
 };
 
 export default (targetElement, { todoLists }, events) => {
   const newTodoList = targetElement.cloneNode(true);
-
   newTodoList.innerHTML = '';
 
   todoLists
