@@ -1,6 +1,5 @@
 const getTodoElement = (todo) => {
   const { text, completed } = todo;
-  console.log(text);
   return `
   <li ${completed ? 'class="completed"' : ''}>
     <div class="view">
