@@ -9,7 +9,8 @@ const extractUrlParams = (route, windowHash) => {
   }
 
   const matches = windowHash.match(route.testRegExp);
-
+  console.log(matches);
+  console.log(route.testRegExp);
   matches.shift();
 
   matches.forEach((paramValue, index) => {
@@ -53,8 +54,6 @@ export default () => {
         return URL_FRAGMENT_REGEXP;
       })
       .replace(/\//g, '\\/');
-
-    console.log(`^${parsedFragment}$`);
 
     routes.push({
       testRegExp: new RegExp(`^${parsedFragment}$`),
